@@ -1,0 +1,55 @@
+<div class="row">
+  <div *ngFor="let product of productChild" class="col-lg-3">
+    <div class="card" style="width: 18rem">
+      <img
+        src="/assets/imgs/{{ product.imgSrc }}"
+        class="card-img-top"
+        alt="..."
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.Name }}</h5>
+        <div [ngSwitch]="product.Quantity">
+          <div *ngSwitchCase="0">
+            <p class="card-text">No Products avaliable</p>
+            <a
+              href="#"
+              [ngClass]="{
+                'btn-danger': product.Quantity == 0,
+                'btn-warning': product.Quantity == 1,
+                'btn-success': product.Quantity > 1
+              }"
+              class="btn btn-danger d-flex justify-content-center"
+              >Solid Out</a
+            >
+          </div>
+          <div *ngSwitchCase="1">
+            <p class="card-text">Only One Item avaliable</p>
+            <a
+              href="#"
+              [ngClass]="{
+                'btn-danger': product.Quantity == 0,
+                'btn-warning': product.Quantity == 1,
+                'btn-success': product.Quantity > 1
+              }"
+              class="btn btn-danger d-flex justify-content-center"
+              >Buy</a
+            >
+          </div>
+          <div *ngSwitchDefault>
+            <p class="card-text">{{ product.Quantity }}</p>
+            <a
+              href="#"
+              [ngClass]="{
+                'btn-danger': product.Quantity == 0,
+                'btn-warning': product.Quantity == 1,
+                'btn-success': product.Quantity > 1
+              }"
+              class="btn btn-danger d-flex justify-content-center"
+              >Buy</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

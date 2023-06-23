@@ -1,0 +1,12 @@
+img 
+{
+    height:300px; ;
+}
+.card-body
+{
+    margin: auto;
+}
+.card-body a 
+{
+    background: black;
+}

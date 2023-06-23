@@ -1,0 +1,59 @@
+<div class="container">
+  <form class="mb-4">
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <input
+        [(ngModel)]="studentName"
+        type="text"
+        class="form-control"
+        id="name"
+        name="studentName"
+        aria-descr
+        ibedby="emailHelp"
+        required
+        (keyup)="isNameInvalid()"
+      />
+      <span *ngIf="!isCheckedName" class="text-danger"
+        >Name is required and should be at least 2 characters long.</span
+      >
+    </div>
+    <div class="mb-3">
+      <label for="age" class="form-label">age</label>
+      <input
+        type="number"
+        name="studentAge"
+        class="form-control"
+        id="age"
+        [(ngModel)]="studentAge"
+        (keyup)="isAgeInvalid()"
+      />
+      <span *ngIf="!isCheckedAge" class="text-danger"
+        >Age is required and should be at least 2 characters long.</span
+      >
+    </div>
+
+    <button type="submit" class="btn btn-dark" (click)="addStudent()">Add</button>
+  </form>
+  <div >
+    <table class="table table-bordered table-hovered">
+  <thead>
+    <tr>
+      <th scope="col">rank</th>
+      <th scope="col">name</th>
+      <th scope="col">Age</th>
+      <th scope="col">action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of studentList; let i=index">
+      <th scope="row">{{i+1}}</th>
+      <td>{{student.Name}}</td>
+      <td>{{student.Age}}</td>
+      <td><i class="bi bi-trash3" (click)="deleteStudent(i)"></i></td>
+    </tr>
+   
+  </tbody>
+</table>
+</div>
+
+</div>

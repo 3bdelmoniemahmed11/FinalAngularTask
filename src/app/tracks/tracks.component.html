@@ -1,0 +1,6 @@
+<select [(ngModel)]="trackName" class="form-select" aria-label="Select your track" (change)="displayRegions()">
+  <option *ngFor="let trackName of trakNames">{{ trackName.Name }}</option>
+</select>
+<ul class="list-group">
+  <li *ngFor="let reigion of displayedReigions"class="list-group-item">{{reigion}}</li>
+</ul>

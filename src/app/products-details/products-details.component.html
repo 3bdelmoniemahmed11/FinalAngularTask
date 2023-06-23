@@ -1,0 +1,33 @@
+<div class="container">
+  <h2 class="text-center m-3">Our Products</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Quantity</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let product of productList2;">
+        <th scope="row">{{ product.id }}</th>
+        <td>{{ product.productName }}</td>
+        <td>{{ product.price | currency }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>
+          <i
+            [routerLink]="['/products', product.id]"
+            class="fs-2 mx-1 text-warning bi bi-eye-fill"
+          ></i>
+          <i
+            [routerLink]="['/products', product.id, 'edit']"
+            class="fs-2 mx-1 text-info bi bi-pencil-square"
+          ></i>
+          <i class="fs-2 mx-1 text-danger bi bi-trash3" (click)="delete(product.id)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
